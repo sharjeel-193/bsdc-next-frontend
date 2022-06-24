@@ -3,7 +3,7 @@ import { Hidden } from "@mui/material"
 import { useEffect, useState } from "react"
 import Footer from "./Footer"
 import Header from "./Header"
-import Sidebar from "./Sidebar"
+// import Sidebar from "./Sidebar"
 
 function Layout({ children }) {
   const [openSidebar, setOpenSidebar] = useState(false)
@@ -20,9 +20,9 @@ function Layout({ children }) {
   return (
     <div>
         
-        <Hidden only={['md','lg','xl']}>
+        {/* <Hidden only={['md','lg','xl']}>
           <Sidebar open={openSidebar} onClose={handleSidebarClose} />
-        </Hidden>
+        </Hidden> */}
         <Header onSidebarOpen={handleSidebarOpen} onSidebarClose={handleSidebarClose} sidebar={openSidebar}/>
         { children }
         <Footer />

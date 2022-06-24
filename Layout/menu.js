@@ -9,8 +9,8 @@ const menu =  [
         path: '/about'
     },
     {
-        title: 'Portfolio',
-        path: '/portfolio'
+        title: 'Services',
+        path: '/services'
     },
     {
         title: 'Blogs',

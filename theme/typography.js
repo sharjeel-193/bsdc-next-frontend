@@ -1,6 +1,6 @@
 
 const typography = {
-	fontFamily: ['"Montserrat"','sans-serif'].join(',')
+	fontFamily: ['"Exo"','sans-serif'].join(',')
 	
 }
 

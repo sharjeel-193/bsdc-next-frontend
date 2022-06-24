@@ -6,7 +6,11 @@ import {Box, Typography, useTheme} from '@mui/material'
 export default function Home() {
     const theme = useTheme()
     return (
-        <Box>
+        <Box
+            sx={{
+                backgroundColor: theme.palette.filler.vibrant
+            }}
+        >
             <Typography
                 sx={{
                     fontSize: '40px',
