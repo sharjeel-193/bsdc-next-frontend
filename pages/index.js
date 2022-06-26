@@ -7,6 +7,7 @@ import Logo from '../public/images/logo.png'
 import FrontHero from '../sections/FrontHero'
 import ServicesSection from '../sections/ServicesSection'
 import AboutHome from '../sections/AboutHome'
+import ReviewsHome from '../sections/ReviewsHome'
 
 export default function Home() {
     const theme = useTheme()
@@ -19,6 +20,7 @@ export default function Home() {
             <FrontHero />
             <ServicesSection />
             <AboutHome />
+            <ReviewsHome />
             {/* <Image src={Logo} width={500} height={500}/>
             <Image src={Logo} width={500} height={500}/>
             <Image src={Logo} width={500} height={500}/>

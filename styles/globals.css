@@ -69,3 +69,10 @@ a {
 .service-img:hover{
   transform: scale(1.2);
 }
+
+.slick-prev:before, .slick-next:before  {
+  content: '' !important;
+}
+.slick-list {
+  padding: 0 !important;
+}

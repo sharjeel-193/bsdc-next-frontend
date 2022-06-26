@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme, Grid } from '@mui/material'
+import { Box, Typography, useTheme, Grid, Hidden, useMediaQuery } from '@mui/material'
 import { Container } from '@mui/system'
 import React from 'react'
 import Link from 'next/link'
@@ -10,9 +10,11 @@ import About4 from '../public/images/about-4.jpg'
 
 function AboutHome() {
     const theme = useTheme()
+    const isSmaller = useMediaQuery(theme.breakpoints.down('md'))
     return (
         <Box
             width={'100%'}
+            overflow={'hidden'}
             backgroundColor={theme.palette.filler.dull}
             padding={'80px 0'}
         >
@@ -39,7 +41,7 @@ function AboutHome() {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <Typography component={'p'} lineHeight={'32px'} fontSize={'18px'}>
+                        <Typography component={'p'} lineHeight={'32px'} fontSize={'18px'} marginTop={isSmaller?'30px':'0px'}>
                             Lorem ipsum dolor sit amet consectetur adipiscing elit, elementum pretium penatibus porta phasellus magna mauris sagittis, accumsan placerat sem nisi torquent non. Tempus egestas praesent conubia  aliquet habitasse, ante eu ullamcorper neque ultricies risus quam mattis dui tempor nam.
                         </Typography>
                         <Link href={'#'}>
@@ -60,22 +62,23 @@ function AboutHome() {
                     marginTop={5}
                 >
                     <Box
-                        width={'50%'}
+                        width={isSmaller?'100%':'50%'}
                         // backgroundColor={'yellow'}
                         
                     >
                         <Box
                             width={'95%'}
-                            margin={'5px auto'}
+                            marginTop={'5px'}
+                            marginLeft={isSmaller?'-30px':'0px'}
                             height={'200px'}
                             position={'relative'}
-                            marginBottom={'30px'}
                         >
                             <Image src={About1} alt="" layout='fill' />
                         </Box>
                         <Box
                             width={'95%'}
-                            margin={'5px auto'}
+                            marginTop={'5px'}
+                            marginLeft={isSmaller?'60px':'0px'}
                             height={'300px'}
                             position={'relative'}
                         >
@@ -84,9 +87,9 @@ function AboutHome() {
 
 
                     </Box>
+                    <Hidden only={['xs','sm']}>
                     <Box
                         width={'50%'}
-                        // backgroundColor={'red'}
                     >
                         
                         <Box
@@ -107,6 +110,7 @@ function AboutHome() {
                             <Image src={About4} alt="" layout='fill' />
                         </Box>
                     </Box>
+                    </Hidden>
                 </Box>
             </Container>
         </Box>
