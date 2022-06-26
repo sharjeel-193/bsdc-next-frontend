@@ -63,4 +63,9 @@ a {
   position: absolute;
   width: 100%;
 }
-
+.service-img{
+  transition: all 0.3s linear;
+}
+.service-img:hover{
+  transform: scale(1.2);
+}
