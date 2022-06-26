@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import Logo from '../public/images/logo.png'
 import { useEffect, useState } from "react"
-import { AppBar, Box, Container, Drawer, Hidden, IconButton, List, ListItem, Typography, useTheme } from "@mui/material"
+import { AppBar, Box, Container, Drawer, Hidden, IconButton, List, ListItem, Typography, useMediaQuery, useTheme } from "@mui/material"
 import menu from "./menu"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import {RiMenu4Fill, RiCloseLine} from 'react-icons/ri'
+import {MdOutlineMail, MdOutlinePhone} from 'react-icons/md'
 import {SlideDown} from 'react-slidedown'
 
 function Header(props){
@@ -16,6 +17,7 @@ function Header(props){
     const scrollValue = 100;
     const [logoSize, setLogoSize] = useState(80);
     const [mblMenu, setMblMenu] = useState(false);
+    const isSmaller = useMediaQuery(theme.breakpoints.down('sm'))
 
 
     useEffect(() => {
@@ -50,66 +52,118 @@ function Header(props){
     return (
         <Box
             width={'100%'}
+            position={'fixed'}
             sx={{
-                backgroundColor: theme.palette.primary.dark,
-                padding: '10px 0'
+                // backgroundColor: scrollY>scrollValue?theme.palette.primary.dark:'transparent',
+                // padding: '10px 0',
+                zIndex: 99,
+                transition: 'all 0.4s linear',
+                [theme.breakpoints.down('md')]:{
+                    backgroundColor: theme.palette.primary.dark
+                }
             }}
         >
-            <Container>
+            <Box
+                backgroundColor={theme.palette.filler.vibrant}
+                display={'flex'}
+                alignItems={'flex-end'}
+                justifyContent={'flex-end'}
+                padding={'2px 0'}
+            >
                 <Box
                     display={'flex'}
                     alignItems={'center'}
-                    justifyContent={'space-between'}
-                    zIndex={99}
-                    // backgroundColor={'yellow'}
+                    paddingRight={'10px'}
+                    borderRight={'1px solid black'}
+                    fontSize={'14px'}
                 >
+                    <MdOutlineMail />
+                    <Typography marginLeft={'5px'} fontSize={'inherit'}>brightsdc@gmail.com</Typography>
+                </Box>
+                <Box
+                    display={'flex'}
+                    alignItems={'center'}
+                    paddingLeft={'10px'}
+                    marginRight={'10px'}
+                    fontSize={'14px'}
+                >
+                    <MdOutlinePhone />
+                    <Typography marginLeft={'5px'} fontSize={'inherit'}>03XX-XXXXXXX</Typography>
+                </Box>
+            </Box>
+            <Box
+                backgroundColor={scrollY>scrollValue?theme.palette.primary.dark:'transparent'}
+            >
+                <Container>
                     <Box
+                        
                         display={'flex'}
                         alignItems={'center'}
+                        justifyContent={'space-between'}
+                        zIndex={99}
+                        padding={'10px 0'}
+                        marginBottom={0}
+                        // backgroundColor={'yellow'}
                     >
                         <Box
-                            width={logoSize}
-                            height={logoSize}
-                            position="relative"
-                            sx={{
-                                transition: 'all 0.3s linear'
-                            }}
+                            display={'flex'}
+                            alignItems={'center'}
                         >
-                            <Image src={Logo} alt="header-logo" layout="fill"/>
-                        </Box>
-                        <Hidden only={['xs']}>
+                            <Box
+                                width={scrollY>scrollValue?50:logoSize}
+                                height={scrollY>scrollValue?50:logoSize}
+                                position="relative"
+                                sx={{
+                                    transition: 'all 0.3s linear'
+                                }}
+                            >
+                                <Image src={Logo} alt="header-logo" layout="fill"/>
+                            </Box>
+                            {/* <Hidden only={['xs']}>
+                                <Typography component={'h1'} sx={{
+                                    fontWeight:'600',
+                                    fontSize: scrollY>scrollValue?'28px':'32px',
+                                    marginLeft: '5px',
+                                    letterSpacing: '-2px',
+                                    color: theme.palette.secondary.main,
+                                    transition: 'all 0.3s linear'
+                                }}>
+                                    Bright Smile Dental Clinic
+                                </Typography>
+                            </Hidden> */}
                             <Typography component={'h1'} sx={{
-                                fontWeight:'600',
-                                fontSize: '32px',
-                                marginLeft: '5px',
-                                letterSpacing: '-2px',
-                                color: theme.palette.secondary.main
-                            }}>
-                                Bright Smile Dental Clinic
-                            </Typography>
+                                    fontWeight:isSmaller?500:600,
+                                    fontSize: isSmaller?'24px':scrollY>scrollValue?'28px':'32px',
+                                    marginLeft: '5px',
+                                    letterSpacing: '-2px',
+                                    color: theme.palette.secondary.main,
+                                    transition: 'all 0.3s linear'
+                                }}>
+                                    Bright Smile Dental Clinic
+                                </Typography>
+                        </Box>
+                        <Hidden only={['xs','sm']}>
+                            <Box
+                                display={'flex'}
+                                color={scrollY>scrollValue?'white':theme.palette.primary.main}
+                                width={'40%'}
+                            >
+                                {menu.map((item, index) => (
+                                    <Link href={item.path} key={index}>
+                                        <a className={router.pathname==item.path?'menu_link_desktop_active':'menu_link_desktop'}>{item.title}</a>
+                                    </Link>
+                                ))}
+                            </Box>
+                        </Hidden>
+                        <Hidden only={['md','lg','xl']}>
+                            <IconButton className={'menu_icon'} onClick={mblMenu?hideMblMenu:showMblMenu}>
+                                {mblMenu ? <RiCloseLine /> : <RiMenu4Fill />}
+                            </IconButton>
                         </Hidden>
                     </Box>
-                    <Hidden only={['xs','sm']}>
-                        <Box
-                            display={'flex'}
-                            color={'white'}
-                            width={'40%'}
-                        >
-                            {menu.map((item, index) => (
-                                <Link href={item.path} key={index}>
-                                    <a className={router.pathname==item.path?'menu_link_desktop_active':'menu_link_desktop'}>{item.title}</a>
-                                </Link>
-                            ))}
-                        </Box>
-                    </Hidden>
-                    <Hidden only={['md','lg','xl']}>
-                        <IconButton className={'menu_icon'} onClick={mblMenu?hideMblMenu:showMblMenu}>
-                            {mblMenu ? <RiCloseLine /> : <RiMenu4Fill />}
-                        </IconButton>
-                    </Hidden>
-                </Box>
-                
-            </Container>
+                    
+                </Container>
+            </Box>
             <Box
                 zIndex={99}
             >
@@ -118,7 +172,7 @@ function Header(props){
                             {mblMenu && 
                             <Box
                                 width={'100%'}
-                                margin={'10px auto'}
+                                margin={'0px auto'}
                                 color={'white'}
                                 backgroundColor={theme.palette.primary.dark}
                                 display={'flex'}
