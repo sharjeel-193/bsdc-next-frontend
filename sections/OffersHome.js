@@ -4,17 +4,13 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import About1 from '../public/images/about-1.jpg'
-import About2 from '../public/images/about-2.jpg'
-import About3 from '../public/images/about-3.jpg'
-import About4 from '../public/images/about-4.jpg'
 
-function AboutHome() {
+function OffersHome() {
     const theme = useTheme()
-    const isSmaller = useMediaQuery(theme.breakpoints.down('md'))
     return (
         <Box
             width={'100%'}
-            backgroundColor={theme.palette.filler.dull}
+            backgroundColor={theme.palette.filler.vibrant}
             padding={'0px 0'}
         >
             <Grid container spacing={0}>
@@ -31,13 +27,13 @@ function AboutHome() {
                         justifyContent={'center'}
                     >
                         <Typography component={'h3'}
-                            color={theme.palette.secondary.main}
+                            color={theme.palette.secondary.dark}
                             fontSize={'20px'}
                             marginTop={7}
                             fontWeight={500}
                             
                         >
-                            YOUR SMILE, OUR PASSION, OUR PRIDE
+                            SPECIAL OFFER
                         </Typography>
                         <Typography component={'h2'}
                             color={theme.palette.primary.dark}
@@ -47,22 +43,12 @@ function AboutHome() {
                             fontSize={'56px'}
                             fontWeight={600}
                         >
-                            We Care about your Dental Health
+                            10% Off on Braces
                         </Typography>
-                        <Typography component={'p'} lineHeight={'32px'} fontSize={'18px'} marginTop={'30px'}>
+                        <Typography component={'p'} lineHeight={'32px'} fontSize={'18px'} marginTop={'30px'} marginBottom={7}>
                             Lorem ipsum dolor sit amet consectetur adipiscing elit, elementum pretium penatibus porta phasellus magna mauris sagittis, accumsan placerat sem nisi torquent non. Tempus egestas praesent conubia  aliquet habitasse, ante eu ullamcorper neque ultricies risus quam mattis dui tempor nam.
                         </Typography>
-                        <Link href={'#'}>
-                            <Typography 
-                                color={theme.palette.primary.main} 
-                                marginBottom={7}
-                                sx={{
-                                    cursor: 'pointer',
-
-                                }}>
-                                    Read More
-                                </Typography>
-                        </Link>
+                        
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -82,4 +68,4 @@ function AboutHome() {
     )
 }
 
-export default AboutHome
+export default OffersHome

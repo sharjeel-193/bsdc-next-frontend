@@ -13,17 +13,18 @@ function ServiceCard(props) {
             // border={'1px solid black'}
             borderRadius={5}
             overflow={'hidden'}
+            sx={{
+                transition: 'all 0.3s linear',
+                '&:hover':{
+                    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px;'
+                }
+            }}
         >
             <Box
                 width={'100%'}
                 height={isSmaller?'200px':'280px'}
                 position={'relative'}
                 zIndex={80}
-                // sx={{
-                //     '&:hover':{
-                //         transform: 'scale(1.1)'
-                //     }
-                // }}
                 
             >
                 <Image src={bgImg} className='service-img' alt="Service" layout={'fill'} />
@@ -32,7 +33,7 @@ function ServiceCard(props) {
             
             <Box
                 width={'100%'}
-                backgroundColor={theme.palette.primary.light}
+                // backgroundColor={theme.palette.primary.light}
             >
                 
                 <Box
@@ -81,7 +82,7 @@ function ServiceCard(props) {
                         fontFamily={'Exo'}
                         fontWeight={400}
                         fontSize={'14px'}
-                        color={'white'}
+                        color={theme.palette.primary.main}
                     >{desc}</Typography>
                 </Box>
             </Box>

@@ -8,6 +8,10 @@ import FrontHero from '../sections/FrontHero'
 import ServicesSection from '../sections/ServicesSection'
 import AboutHome from '../sections/AboutHome'
 import ReviewsHome from '../sections/ReviewsHome'
+import TeamHome from '../sections/TeamHome'
+import OffersHome from '../sections/OffersHome'
+import ContactForm from '../sections/ContactForm'
+import BlogsHome from '../sections/BlogsHome'
 
 export default function Home() {
     const theme = useTheme()
@@ -21,6 +25,10 @@ export default function Home() {
             <ServicesSection />
             <AboutHome />
             <ReviewsHome />
+            <TeamHome />
+            <OffersHome />
+            <ContactForm />
+            <BlogsHome />
             {/* <Image src={Logo} width={500} height={500}/>
             <Image src={Logo} width={500} height={500}/>
             <Image src={Logo} width={500} height={500}/>

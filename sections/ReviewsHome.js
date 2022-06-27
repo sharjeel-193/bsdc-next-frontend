@@ -38,7 +38,8 @@ function ReviewsHome() {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoPlay: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
         arrow: true,
         nextArrow: <CustomNextArrow />,
         prevArrow: <CustomPrevArrow />
