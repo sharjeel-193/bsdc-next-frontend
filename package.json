@@ -11,10 +11,12 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@mui/lab": "^5.0.0-alpha.88",
     "@mui/material": "^5.8.5",
     "@mui/styles": "^5.8.4",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/image-url": "^1.0.1",
+    "classnames": "^2.3.1",
     "embla-carousel-react": "^6.2.0",
     "moment": "^2.29.3",
     "next": "12.1.5",

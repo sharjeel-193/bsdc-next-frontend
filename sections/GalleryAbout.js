@@ -1,5 +1,6 @@
-import { Box, ImageList, ImageListItem, Container, Typography, useTheme } from '@mui/material'
+import { Box, ImageList, ImageListItem, Container, Typography, useTheme, useMediaQuery,  } from '@mui/material'
 import React from 'react'
+import {Masonry} from '@mui/lab'
 import About1 from '../public/images/about-1.jpg'
 import About2 from '../public/images/about-2.jpg'
 import About3 from '../public/images/about-3.jpg'
@@ -12,7 +13,19 @@ import Image from 'next/image'
 
 function GalleryAbout() {
     const theme = useTheme()
-    const galleryImgs = [About1, About2, About3, About4, Person1, Service1, Service2, Person2]
+    const isSmaller = useMediaQuery(theme.breakpoints.down('sm'))
+    const isMed = useMediaQuery(theme.breakpoints.down('md'))
+    const galleryImgs = [
+        About1,
+        About2,
+        About3,
+        About4,
+        Person1,
+        Person2,
+        Service1,
+        Service2,
+    ]
+   
     return (
         <Box
             width={'100%'}
@@ -38,30 +51,27 @@ function GalleryAbout() {
                 Smile Gallery
             </Typography>
             <Container>
-                <ImageList variant={'masonry'} cols={3} gap={8}>
-                {galleryImgs.map((item, index) => (
-                    <ImageListItem key={index}>
-                        {/* <img
-                            src={`${item}?w=248&fit=crop&auto=format`}
-                            srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                            alt={'ddi'}
-                            loading="lazy"
-                        /> */}
-                        <img
-                            src={item}
-                            srcSet={item}
-                            alt={'ddi'}
-                            loading="lazy"
-                        />
-                        {/* <Box
-                            width={'100%'}
-                            height={'300px'}
-                        >
-                            <Image src={item} layout='responsive' />
-                        </Box> */}
-                    </ImageListItem>
-                ))}
-                </ImageList>
+                {/* <Gallery photos={galleryImgs}  direction={'column'}/> */}
+                {/* <ResponsiveGallery images={galleryImgs} /> */}
+                <Box
+                    width={'80%'}
+                    margin={'70px auto 10px auto'}
+                >
+                    <Masonry columns={isSmaller?1:(isMed?2:3)} spacing={2}>
+                        {galleryImgs.map((item, index) => (
+                            <Box key={index}>
+                                <Box
+                                    width={'100%'}
+                                    position={'relative'}
+                                    // height={'300px'}
+                                >
+                                    <Image src={item} layout={'responsive'} objectFit={'cover'} />
+                                </Box>
+                            </Box>
+                        ))}
+                        
+                    </Masonry>
+                </Box>
             </Container>
 
         </Box>

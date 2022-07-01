@@ -150,7 +150,7 @@ function Header(props){
                             >
                                 {menu.map((item, index) => (
                                     <Link href={item.path} key={index}>
-                                        <a className={router.pathname==item.path?'menu_link_desktop_active':'menu_link_desktop'}>{item.title}</a>
+                                        <a className={router.pathname==item.path?'menu_link_desktop_active':'menu_link_desktop'} onClick={hideMblMenu}>{item.title}</a>
                                     </Link>
                                 ))}
                             </Box>

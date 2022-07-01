@@ -19,7 +19,7 @@ function IntroAbout() {
                 minHeight={'100vh'}
                 position={'relative'}
             >
-                <Image src={About1} layout={'fill'} />
+                <Image src={About1} layout={'fill'} objectFit={'cover'} />
             </Box>
             <Box
                 width={'100%'}
@@ -40,6 +40,9 @@ function IntroAbout() {
                                 fontSize={'20px'}
                                 fontWeight={500}
                                 marginTop={isSmaller?'120px':0}
+                                sx={{
+                                    transition: 'all 0.3s linear'
+                                }}
                             >
                                 YOUR SMILE, OUR PASSION, OUR PRIDE
                             </Typography>
@@ -50,6 +53,9 @@ function IntroAbout() {
                                 lineHeight={'48px'}
                                 fontSize={'56px'}
                                 fontWeight={600}
+                                sx={{
+                                    transition: 'all 0.3s linear'
+                                }}
                             >
                                 We Care about your Dental Health
                             </Typography>
@@ -70,6 +76,9 @@ function IntroAbout() {
                                 <Box
                                     width={'264px'}
                                     position={'relative'}
+                                    sx={{
+                                        transition: 'all 0.3s linear'
+                                    }}
                                     // backgroundColor={'yellow'}
                                 >
                                     <Box
