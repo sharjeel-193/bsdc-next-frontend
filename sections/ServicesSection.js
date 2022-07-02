@@ -1,5 +1,5 @@
 
-import { Box, Button, Grid, Typography, useTheme } from '@mui/material'
+import { Box, Button, Grid, Typography, useTheme, Container } from '@mui/material'
 import React from 'react'
 import ServiceIcon1 from '../public/images/service-icon-1.png'
 import ServiceIcon2 from '../public/images/service-icon-2.png'
@@ -8,7 +8,6 @@ import Service1 from '../public/images/service1.jpg'
 import Service2 from '../public/images/service2.jpg'
 import Service3 from '../public/images/service3.jpg'
 import Image from 'next/image'
-import { Container } from '@mui/system'
 import ServiceCard from '../components/ServiceCard'
 
 function ServicesSection() {

@@ -56,6 +56,7 @@ function ServiceCard(props) {
                             zIndex={97}
                             marginTop={-3}
                             boxShadow={'rgba(0, 0, 0, 0.24) 0px 3px 8px;'}
+                            
                         >
                             <Box
                                 width={'100%'}
@@ -75,6 +76,13 @@ function ServiceCard(props) {
                             fontSize={'28px'}
                             marginLeft={'10px'}
                             color={theme.palette.primary.dark}
+                            sx={{
+                                cursor: 'pointer',
+                                '&:hover':{
+                                    color: theme.palette.primary.main,
+                                    transition: 'all 0.3s linear'
+                                }
+                            }}
                         >{title}</Typography>
                     </Box>
                     <Typography component={'p'}
@@ -82,7 +90,7 @@ function ServiceCard(props) {
                         fontFamily={'Exo'}
                         fontWeight={400}
                         fontSize={'14px'}
-                        color={theme.palette.primary.main}
+                        color={'black'}
                     >{desc}</Typography>
                 </Box>
             </Box>

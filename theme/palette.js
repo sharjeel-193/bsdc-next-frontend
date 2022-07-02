@@ -22,6 +22,7 @@ const palette = {
 		facebook: '#3B5998',
 		instagram: '#833AB4',
 		linkedIn: '#0007B5',
+		twitter:  '#1A8CD8',
 		whatsapp: '#25D366',
 		github: '#211F1F',
 		docker: '#0DB7ED',

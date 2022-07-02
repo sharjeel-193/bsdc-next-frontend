@@ -1,6 +1,8 @@
 import { Button, Container, Grid, IconButton, OutlinedInput, Typography, useTheme, Box } from "@mui/material"
 import Logo from '../public/images/logo.png'
 import Image from "next/image"
+import {MdEmail, MdLocationOn, MdPhone} from 'react-icons/md'
+import {FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp} from 'react-icons/fa'
 
 import {useEffect, useState} from 'react'
 import Link from "next/link"
@@ -32,11 +34,11 @@ function Footer(){
             padding={'20px 0'}
         >
             <Container>
-                <Grid container spacing={2}>
-                    <Grid item xs={12} md={4}>
+                <Grid container spacing={4}>
+                    <Grid item xs={12} md={6}>
                         <Box
                             display={'flex'}
-                            alignItems={'center'}
+                            // alignItems={'center'}
                         >
                             <Box
                                 width={logoSize}
@@ -60,17 +62,111 @@ function Footer(){
                                 }}>
                                     Bright Smile Dental Clinic
                                 </Typography>
+                                <Typography color={'white'} maxWidth={'300px'} marginLeft={'5px'} fontSize={'14px'} marginTop={'7px'} textAlign={'justify'}>
+                                    Bright Smile Dental Clinic is the State of The Art Dental Clinic in the Town Ensuring Quality Treatment. We Focused on Patient's Ease, Good Care and Following sterilization protocols.Our Special Emphasis is on Cosmetic Procedures and Root Canal Treatment
+                                </Typography>
+                                <Box maxWidth={'300px'} marginLeft={'5px'} display={'flex'} alignItems={'center'} marginTop={'20px'}>
+                                    <Link href={'https://www.facebook.com/BrightSmileDentalClinic0'}>
+                                        <a target={'_blank'}>
+                                            <IconButton
+                                                sx={{
+                                                    marginRight: '7px',
+                                                    color: 'white',
+                                                    fontSize: '14px',
+                                                    border: '1px solid white',
+                                                    '&:hover':{
+                                                        backgroundColor: theme.palette.social.facebook
+                                                    }
+                                                }}
+                                            >
+                                                <FaFacebookF />
+                                            </IconButton>
+                                        </a>
+                                    </Link>
+                                    <IconButton
+                                        sx={{
+                                            marginRight: '7px',
+                                            color: 'white',
+                                            fontSize: '14px',
+                                            border: '1px solid white',
+                                            '&:hover':{
+                                                backgroundColor: theme.palette.social.twitter
+                                            }
+                                        }}
+                                    >
+                                        <FaTwitter />
+                                    </IconButton>
+                                    <IconButton
+                                        sx={{
+                                            marginRight: '7px',
+                                            color: 'white',
+                                            fontSize: '14px',
+                                            border: '1px solid white',
+                                            '&:hover':{
+                                                backgroundColor: theme.palette.social.instagram
+                                            }
+                                        }}
+                                    >
+                                        <FaInstagram />
+                                    </IconButton>
+                                    <IconButton
+                                        sx={{
+                                            marginRight: '7px',
+                                            color: 'white',
+                                            fontSize: '14px',
+                                            border: '1px solid white',
+                                            '&:hover':{
+                                                backgroundColor: theme.palette.social.whatsapp
+                                            }
+                                        }}
+                                    >
+                                        <FaWhatsapp />
+                                    </IconButton>
+                                </Box>
+                                
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={4}>
-                        <Box mt={5}>
-                            <Typography component={'h4'} variant={'h4'} color='white'>Subscribe to our Blogs</Typography>
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <Box mt={5}>
-                            <Typography component={'h4'} variant={'h4'} color='white'>For Info</Typography>
+                    
+                    <Grid item xs={12} md={6}>
+                        <Box mt={3}>
+                            <Typography 
+                                component={'h4'}
+                                color='white'
+                                margin={'0 0 20px 0'}
+                                fontSize={'24px'}
+                            >For Info</Typography>
+                            <Box
+                                display={'flex'}
+                                alignItems={'center'}
+                                color={'white'}
+                                fontSize={'20px'}
+                                marginBottom={'7px'}
+                            >
+                                <MdLocationOn />
+                                <Typography marginLeft={'10px'}>Main Chowk Khurrianwala Punjab</Typography>
+                            </Box>
+                            <Box
+                                display={'flex'}
+                                alignItems={'center'}
+                                color={'white'}
+                                fontSize={'20px'}
+                                marginBottom={'7px'}
+                            >
+                                <MdEmail />
+                                <Typography marginLeft={'10px'}>brightsmile2223@gmail.com</Typography>
+                            </Box>
+                            <Box
+                                display={'flex'}
+                                alignItems={'center'}
+                                color={'white'}
+                                fontSize={'20px'}
+                                marginBottom={'7px'}
+                            >
+                                <MdPhone />
+                                <Typography marginLeft={'10px'}>0321 8323106</Typography>
+                            </Box>
+
                         </Box>
                     </Grid>
                 </Grid>
@@ -78,62 +174,6 @@ function Footer(){
         </Box>
     )
 }
-
-// function Footer(props) {
-//   // const classes = useStyles()
-//   const theme = useTheme()
-//     return (
-//       <div className="footer_wrapper">
-//         <Container>
-//           <Grid container spacing={3} justifyContent={'space-between'}>
-//             <Grid item xs={12} md={4} lg={3}>
-//               <div className="footer_info_content">
-//                 <Image src={logo} alt="Footer Logo"  />
-
-//               </div>
-//             </Grid>
-//             <Grid item xs={12} md={4} lg={3}>
-//                 <div className="footer_subscription_form">
-//                   <Typography component='h2' variant="h6" className="footer_social_link_heading">Don&rsquo;t Fall Behind</Typography>
-//                   <Typography component='p' variant='body2' color={theme.palette.secondary.light}>Subscribe to me Blogs and get latest information about trends and new technologies</Typography>
-//                   <Box component={'form'} mt={2} display='flex' flexDirection='column'>
-//                     <OutlinedInput 
-//                       type={'email'} 
-//                       placeholder='Enter Your Email Here'
-//                       label={'Email'}
-//                       classes={{
-//                         root: 'email_root_field',
-//                         input: 'email_input_field',
-//                       }}
-//                     />
-//                     <Button type="submit" variant="outlined" className="footer_subscribe_btn">Subscribe</Button>
-//                   </Box>
-//                 </div>
-//             </Grid>
-//             <Grid item xs={12} md={4} lg={3}>
-//               <div className="footer_social_links">
-//                   <Typography component='h2' variant="h6" className="footer_social_link_heading">Reach me Out</Typography>
-//                   <Box display={'flex'}>
-//                     {socialMediaLinks.map((item, index) => (
-//                       <Link key={index} href={item.link}  passHref>
-//                         <a target='_blank'>
-//                           <SocialIcon  item={item} color={item.color} />
-//                         </a>
-//                       </Link>
-//                     ))}
-//                   </Box>
-//               </div>
-//             </Grid>
-//           </Grid>
-//           <Box paddingY={4} borderTop={`1px solid ${theme.palette.secondary.light}`} marginTop={5} textAlign='center'>
-//               <Typography component='p' variant='body2' color={theme.palette.secondary.light}>
-//                 &copy; Copyright 2022 - Made with &#x1F90D; by M. Sharjeel Maqsood
-//               </Typography>
-//           </Box>
-//         </Container>
-//       </div>
-//     )
-//   }
 
 
   

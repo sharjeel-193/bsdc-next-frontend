@@ -65,6 +65,7 @@ a {
 }
 .service-img{
   transition: all 0.3s linear;
+  cursor: pointer;
 }
 .service-img:hover{
   transform: scale(1.2);
