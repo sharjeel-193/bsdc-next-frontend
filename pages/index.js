@@ -40,3 +40,7 @@ export default function Home() {
         </Box>
     )
 }
+
+// export const getServerSideProps = async () => {
+    
+// }

@@ -18,6 +18,7 @@ function Header(props){
     const [logoSize, setLogoSize] = useState(80);
     const [mblMenu, setMblMenu] = useState(false);
     const isSmaller = useMediaQuery(theme.breakpoints.down('sm'))
+    const {email, phoneNo} = props
 
 
     useEffect(() => {
@@ -78,7 +79,7 @@ function Header(props){
                     fontSize={'14px'}
                 >
                     <MdOutlineMail />
-                    <Typography marginLeft={'5px'} fontSize={'inherit'}>brightsdc@gmail.com</Typography>
+                    <Typography marginLeft={'5px'} fontSize={'inherit'}>{email?email:'EMAIL'}</Typography>
                 </Box>
                 <Box
                     display={'flex'}
@@ -88,7 +89,7 @@ function Header(props){
                     fontSize={'14px'}
                 >
                     <MdOutlinePhone />
-                    <Typography marginLeft={'5px'} fontSize={'inherit'}>03XX-XXXXXXX</Typography>
+                    <Typography marginLeft={'5px'} fontSize={'inherit'}>{phoneNo?phoneNo:'03XX-XXXXXXX'}</Typography>
                 </Box>
             </Box>
             <Box

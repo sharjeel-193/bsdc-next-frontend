@@ -5,27 +5,30 @@ import Footer from "./Footer"
 import Header from "./Header"
 // import Sidebar from "./Sidebar"
 
-function Layout({ children }) {
-  const [openSidebar, setOpenSidebar] = useState(false)
+function Layout(props) {
+  const {layoutData, children} = props
+
+  useEffect(() => {
+    console.log({Props: layoutData})
+  }, [])
   
-  const handleSidebarOpen = () => {
-    setOpenSidebar(true);
-  };
-  const handleSidebarClose = () => {
-    setOpenSidebar(false);
-  };
-  const toggleSidebarOpen = () => {
-    setOpenSidebar(!openSidebar)
-  }
   return (
     <div>
         
-        {/* <Hidden only={['md','lg','xl']}>
-          <Sidebar open={openSidebar} onClose={handleSidebarClose} />
-        </Hidden> */}
-        <Header onSidebarOpen={handleSidebarOpen} onSidebarClose={handleSidebarClose} sidebar={openSidebar}/>
+        <Header 
+          email={layoutData.email}
+          phoneNo={layoutData.phoneNo}
+        />
         { children }
-        <Footer />
+        <Footer
+          description={layoutData.description}
+          facebook={layoutData.facebook}
+          twitter={layoutData.twitter}
+          instagram={layoutData.instagram}
+          address={layoutData.address}
+          email={layoutData.email}
+          phoneNo={layoutData.phoneNo}
+        />
     </div>
   )
 }

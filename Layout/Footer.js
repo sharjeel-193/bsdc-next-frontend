@@ -8,9 +8,10 @@ import {useEffect, useState} from 'react'
 import Link from "next/link"
 
 
-function Footer(){
+function Footer(props){
     const theme  = useTheme()
     const [logoSize, setLogoSize] = useState(80);
+    const {email, phoneNo, description, facebook, twitter, instagram, address} = props
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth>=900){
@@ -63,10 +64,10 @@ function Footer(){
                                     Bright Smile Dental Clinic
                                 </Typography>
                                 <Typography color={'white'} maxWidth={'300px'} marginLeft={'5px'} fontSize={'14px'} marginTop={'7px'} textAlign={'justify'}>
-                                    Bright Smile Dental Clinic is the State of The Art Dental Clinic in the Town Ensuring Quality Treatment. We Focused on Patient's Ease, Good Care and Following sterilization protocols.Our Special Emphasis is on Cosmetic Procedures and Root Canal Treatment
+                                    {description}
                                 </Typography>
                                 <Box maxWidth={'300px'} marginLeft={'5px'} display={'flex'} alignItems={'center'} marginTop={'20px'}>
-                                    <Link href={'https://www.facebook.com/BrightSmileDentalClinic0'}>
+                                    <Link href={facebook}>
                                         <a target={'_blank'}>
                                             <IconButton
                                                 sx={{
@@ -83,32 +84,40 @@ function Footer(){
                                             </IconButton>
                                         </a>
                                     </Link>
-                                    <IconButton
-                                        sx={{
-                                            marginRight: '7px',
-                                            color: 'white',
-                                            fontSize: '14px',
-                                            border: '1px solid white',
-                                            '&:hover':{
-                                                backgroundColor: theme.palette.social.twitter
-                                            }
-                                        }}
-                                    >
-                                        <FaTwitter />
-                                    </IconButton>
-                                    <IconButton
-                                        sx={{
-                                            marginRight: '7px',
-                                            color: 'white',
-                                            fontSize: '14px',
-                                            border: '1px solid white',
-                                            '&:hover':{
-                                                backgroundColor: theme.palette.social.instagram
-                                            }
-                                        }}
-                                    >
-                                        <FaInstagram />
-                                    </IconButton>
+                                    <Link href={twitter}>
+                                        <a target={'_blank'}>
+                                            <IconButton
+                                                sx={{
+                                                    marginRight: '7px',
+                                                    color: 'white',
+                                                    fontSize: '14px',
+                                                    border: '1px solid white',
+                                                    '&:hover':{
+                                                        backgroundColor: theme.palette.social.twitter
+                                                    }
+                                                }}
+                                            >
+                                                <FaTwitter />
+                                            </IconButton>
+                                        </a>
+                                    </Link>
+                                    <Link href={instagram}>
+                                        <a target={'_blank'}>
+                                            <IconButton
+                                                sx={{
+                                                    marginRight: '7px',
+                                                    color: 'white',
+                                                    fontSize: '14px',
+                                                    border: '1px solid white',
+                                                    '&:hover':{
+                                                        backgroundColor: theme.palette.social.instagram
+                                                    }
+                                                }}
+                                            >
+                                                <FaInstagram />
+                                            </IconButton>
+                                        </a>
+                                    </Link>
                                     <IconButton
                                         sx={{
                                             marginRight: '7px',
@@ -144,7 +153,7 @@ function Footer(){
                                 marginBottom={'7px'}
                             >
                                 <MdLocationOn />
-                                <Typography marginLeft={'10px'}>Main Chowk Khurrianwala Punjab</Typography>
+                                <Typography marginLeft={'10px'}>{address}</Typography>
                             </Box>
                             <Box
                                 display={'flex'}
@@ -154,7 +163,7 @@ function Footer(){
                                 marginBottom={'7px'}
                             >
                                 <MdEmail />
-                                <Typography marginLeft={'10px'}>brightsmile2223@gmail.com</Typography>
+                                <Typography marginLeft={'10px'}>{email}</Typography>
                             </Box>
                             <Box
                                 display={'flex'}
@@ -164,7 +173,7 @@ function Footer(){
                                 marginBottom={'7px'}
                             >
                                 <MdPhone />
-                                <Typography marginLeft={'10px'}>0321 8323106</Typography>
+                                <Typography marginLeft={'10px'}>{phoneNo}</Typography>
                             </Box>
 
                         </Box>
