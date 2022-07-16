@@ -1,9 +1,10 @@
 import React from 'react'
 import {Box, Typography, useMediaQuery, useTheme} from '@mui/material'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function ServiceCard(props) {
-    const {bgImg, iconImg, title, desc} = props
+    const {bgImg, iconImg, title, desc, slug} = props
     const theme = useTheme()
     const isMed = useMediaQuery(theme.breakpoints.down('md'))
     const isSmaller = useMediaQuery(theme.breakpoints.down('sm'))
@@ -70,27 +71,32 @@ function ServiceCard(props) {
                             </Box>
                         </Box>
 
-                        <Typography component={'h3'}
-                            fontFamily={'Crimson Pro'}
-                            fontWeight={600}
-                            fontSize={'28px'}
-                            marginLeft={'10px'}
-                            color={theme.palette.primary.dark}
-                            sx={{
-                                cursor: 'pointer',
-                                '&:hover':{
-                                    color: theme.palette.primary.main,
-                                    transition: 'all 0.3s linear'
-                                }
-                            }}
-                        >{title}</Typography>
+                        <Link href={`/services/${slug}`}>
+                            <Typography component={'h3'}
+                                fontFamily={'Crimson Pro'}
+                                fontWeight={600}
+                                fontSize={'28px'}
+                                marginLeft={'10px'}
+                                color={theme.palette.primary.dark}
+                                sx={{
+                                    cursor: 'pointer',
+                                    '&:hover':{
+                                        color: theme.palette.primary.main,
+                                        transition: 'all 0.3s linear'
+                                    }
+                                }}
+                            >
+                                {title}
+                            </Typography>
+                        </Link>
                     </Box>
                     <Typography component={'p'}
-                        height={'60px'}
+                        height={'55px'}
                         fontFamily={'Exo'}
                         fontWeight={400}
                         fontSize={'14px'}
                         color={'black'}
+                        textAlign={'justify'}
                     >{desc}</Typography>
                 </Box>
             </Box>

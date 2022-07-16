@@ -133,15 +133,15 @@ function Header(props){
                                 </Typography>
                             </Hidden> */}
                             <Typography component={'h1'} sx={{
-                                    fontWeight:isSmaller?500:600,
-                                    fontSize: isSmaller?'24px':scrollY>scrollValue?'28px':'32px',
-                                    marginLeft: '5px',
-                                    letterSpacing: '-2px',
-                                    color: theme.palette.secondary.main,
-                                    transition: 'all 0.3s linear'
-                                }}>
-                                    Bright Smile Dental Clinic
-                                </Typography>
+                                fontWeight:isSmaller?500:600,
+                                fontSize: isSmaller?'24px':scrollY>scrollValue?'28px':'32px',
+                                marginLeft: '5px',
+                                letterSpacing: '-2px',
+                                color: theme.palette.secondary.main,
+                                transition: 'all 0.3s linear'
+                            }}>
+                                Bright Smile Dental Clinic
+                            </Typography>
                         </Box>
                         <Hidden only={['xs','sm']}>
                             <Box

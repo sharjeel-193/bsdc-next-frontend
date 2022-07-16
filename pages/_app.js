@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick-theme.css";
 import App from 'next/app'
 import {sanityClient} from '../sanity'
 import { useEffect } from 'react'
+import { RiLayoutLeftFill } from 'react-icons/ri'
+import LayouFetchError from '../sections/LayouFetchError'
 
 let layoutDataCache
 
@@ -22,9 +24,13 @@ function MyApp({ Component, pageProps, layoutData }) {
     },[])
     return (
         <ThemeProvider theme={theme}>
-            <Layout layoutData={layoutData}>
-                <Component {...pageProps} />
-            </Layout>
+            {layoutData?(
+                <Layout layoutData={layoutData}>
+                    <Component {...pageProps} />
+                </Layout>
+            ):(
+                <LayouFetchError />
+            )}
         </ThemeProvider>
     )
 }
