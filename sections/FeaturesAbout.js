@@ -1,15 +1,12 @@
 import { Box, Typography, useMediaQuery, useTheme, Container, Grid } from '@mui/material'
 import React from 'react'
-import Image from 'next/image'
-import Feature1 from '../public/images/feature-1.png'
-import Feature2 from '../public/images/feature-2.png'
-import Feature3 from '../public/images/feature-3.png'
-import Feature4 from '../public/images/feature-4.png'
-import Feature5 from '../public/images/feature-5.png'
-import FeatureCard from '../components/FeatureCard'
 
-function FeaturesAbout() {
+import FeatureCard from '../components/FeatureCard'
+import { urlFor } from '../sanity'
+
+function FeaturesAbout(props) {
     const theme = useTheme()
+    const {features} = props
     const isSmaller=useMediaQuery(theme.breakpoints.down('sm'))
     return (
         <Box
@@ -40,21 +37,16 @@ function FeaturesAbout() {
                     marginTop={'70px'}
                 >
                     <Grid container spacing={3}>
-                        <Grid item xs={12} md={6}>
-                            <FeatureCard icon={Feature1} title={'Advanced Dentsitry'} desc={'Lorem ipsum dolor sit amet, et pri legimus reprehendunt.'} />
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <FeatureCard icon={Feature2} title={'High Quality Equipment'} desc={'Lorem ipsum dolor sit amet, et pri legimus reprehendunt.'} />
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <FeatureCard icon={Feature3} title={'Comfortable Office'} desc={'Lorem ipsum dolor sit amet, et pri legimus reprehendunt.'} />
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <FeatureCard icon={Feature4} title={'Friendly Staff'} desc={'Lorem ipsum dolor sit amet, et pri legimus reprehendunt.'} />
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <FeatureCard icon={Feature5} title={'Emergency Care'} desc={'Lorem ipsum dolor sit amet, et pri legimus reprehendunt.'} />
-                        </Grid>
+                        {features.map((feature, index) => (
+                            <Grid item xs={12} md={6} key={`feature-${index}`}>
+                                <FeatureCard 
+                                    icon={urlFor(feature.icon).url()} 
+                                    title={feature.title} 
+                                    desc={feature.description} 
+                                />
+                            </Grid>
+                        ))}
+                        
                     </Grid>
                 </Box>
             </Container>

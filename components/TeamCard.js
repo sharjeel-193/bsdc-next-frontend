@@ -38,6 +38,7 @@ function TeamCard(props) {
                 fontFamily={'Exo'}
                 fontWeight={400}
                 fontSize={'18px'}
+                textAlign={'center'}
             >
                 {qualifications}
             </Typography>

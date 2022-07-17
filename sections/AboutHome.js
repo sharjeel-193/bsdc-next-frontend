@@ -1,16 +1,16 @@
 import { Box, Typography, useTheme, Grid, Hidden, useMediaQuery } from '@mui/material'
-import { Container } from '@mui/system'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import About1 from '../public/images/about-1.jpg'
-import About2 from '../public/images/about-2.jpg'
-import About3 from '../public/images/about-3.jpg'
-import About4 from '../public/images/about-4.jpg'
+import {urlFor} from '../sanity'
 
-function AboutHome() {
+function AboutHome(props) {
     const theme = useTheme()
     const isSmaller = useMediaQuery(theme.breakpoints.down('md'))
+    const {aboutData} = props
+    useEffect(() => {
+        console.log({'Props in About Home': props})
+    })
     return (
         <Box
             width={'100%'}
@@ -47,12 +47,12 @@ function AboutHome() {
                             fontSize={'56px'}
                             fontWeight={600}
                         >
-                            We Care about your Dental Health
+                            {aboutData.title}
                         </Typography>
                         <Typography component={'p'} lineHeight={'32px'} fontSize={'18px'} marginTop={'30px'}>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit, elementum pretium penatibus porta phasellus magna mauris sagittis, accumsan placerat sem nisi torquent non. Tempus egestas praesent conubia  aliquet habitasse, ante eu ullamcorper neque ultricies risus quam mattis dui tempor nam.
+                            {aboutData.description}    
                         </Typography>
-                        <Link href={'#'}>
+                        <Link href={'/about'}>
                             <Typography 
                                 color={theme.palette.primary.main} 
                                 marginBottom={7}
@@ -74,7 +74,7 @@ function AboutHome() {
                         top={0}
                         margin={'0'}
                     >
-                        <Image src={About1} layout={'fill'} alt={''} />
+                        <Image src={(urlFor(aboutData.image)).url()} layout={'fill'} alt={''} objectFit={'cover'} />
                     </Box>
                 </Grid>
             </Grid>

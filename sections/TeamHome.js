@@ -7,13 +7,11 @@ import Person1 from '../public/images/person-1.jpg'
 import Person2 from '../public/images/person-2.jpg'
 import Image from 'next/image'
 import TeamCard from '../components/TeamCard'
+import { urlFor } from '../sanity'
 
-function TeamHome() {
+function TeamHome(props) {
     const theme = useTheme()
-
-    
-
-    
+    const {teamMembers} = props
 
     return (
         <Box
@@ -46,12 +44,12 @@ function TeamHome() {
                     </Typography>
                 </Box>
                 <Grid container spacing={2} justifyContent={'center'}>
-                    <Grid item xs={12} md={4}>
-                        <TeamCard img={Person1} name={'Dr Aqeel Maqsood'} qualifications={'BDS, RCDS'} />
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <TeamCard img={Person2} name={'Dr Warda Basharat'} qualifications={'BDS, RCDS'} />
-                    </Grid>
+                    {teamMembers.map((member, key) => (
+                        <Grid item xs={12} md={4} key={`team-${key}`}>
+                            <TeamCard img={(urlFor(member.image)).url()} name={member.name} qualifications={member.introduction} />
+                        </Grid>
+                    ))}
+                    
                 </Grid>
 
             </Container>

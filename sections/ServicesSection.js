@@ -1,17 +1,13 @@
 
 import { Box, Button, Grid, Typography, useTheme, Container } from '@mui/material'
 import React from 'react'
-import ServiceIcon1 from '../public/images/service-icon-1.png'
-import ServiceIcon2 from '../public/images/service-icon-2.png'
-import ServiceIcon3 from '../public/images/service-icon-3.png'
-import Service1 from '../public/images/service1.jpg'
-import Service2 from '../public/images/service2.jpg'
-import Service3 from '../public/images/service3.jpg'
-import Image from 'next/image'
+import { urlFor } from '../sanity'
 import ServiceCard from '../components/ServiceCard'
+import Link from 'next/link'
 
-function ServicesSection() {
+function ServicesSection(props) {
     const theme  = useTheme()
+    const {services} = props
     return (
         <Box
             width={'100%'}
@@ -45,37 +41,42 @@ function ServicesSection() {
             >
                 <Container>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} md={6} lg={4}>
-                            <ServiceCard bgImg={Service1} iconImg={ServiceIcon1} title={'Dental Implants'} desc={'nif fei'} />
-                        </Grid>
-                        <Grid item xs={12} md={6} lg={4}>
-                            <ServiceCard bgImg={Service2} iconImg={ServiceIcon2} title={'Teeth Whitening'} desc={'nif fei'} />
-                        </Grid>
-                        <Grid item xs={12} md={6} lg={4}>
-                            <ServiceCard bgImg={Service3} iconImg={ServiceIcon3} title={'Root Canal'} desc={'nif fei'} />
-                        </Grid>
+                        {services.map((item, index) => (
+                            <Grid item xs={12} md={6} lg={4} key={`service-${index}`}>
+                                <ServiceCard 
+                                    bgImg={(urlFor(item.coverImg)).url()} 
+                                    iconImg={(urlFor(item.icon)).url()} 
+                                    title={item.title} 
+                                    desc={item.introduction} 
+                                    slug={item.slug?item.slug.current:''}
+                                />
+                            </Grid>
+                        ))}
+                        
                     </Grid>
                     <Box
                         width={'100%'}
                         textAlign={'center'}
                     >
-                    <Button
-                        variant='outlined'
-                        sx={{
-                            color: theme.palette.primary.dark,
-                            border: `1px solid ${theme.palette.primary.dark}`,
-                            textTransform: 'none',
-                            marginTop: '10px',
-                            fontFamily: 'Exo',
-                            fontSize:'18px',
-                            '&:hover':{
-                                backgroundColor: theme.palette.primary.dark,
-                                color: 'white'
-                            }
-                        }}
-                    >
-                        More Services
-                    </Button>
+                    <Link href={'/services'}>
+                        <Button
+                            variant='outlined'
+                            sx={{
+                                color: theme.palette.primary.dark,
+                                border: `1px solid ${theme.palette.primary.dark}`,
+                                textTransform: 'none',
+                                marginTop: '10px',
+                                fontFamily: 'Exo',
+                                fontSize:'18px',
+                                '&:hover':{
+                                    backgroundColor: theme.palette.primary.dark,
+                                    color: 'white'
+                                }
+                            }}
+                        >
+                            More Services
+                        </Button>
+                    </Link>
                     </Box>
                 </Container>
             </Box>

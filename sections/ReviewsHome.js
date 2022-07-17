@@ -6,10 +6,11 @@ import ReviewCard from '../components/ReviewCard'
 import Person1 from '../public/images/person-1.jpg'
 import Person2 from '../public/images/person-2.jpg'
 import Image from 'next/image'
+import { urlFor } from '../sanity'
 
-function ReviewsHome() {
+function ReviewsHome(props) {
     const theme = useTheme()
-
+    const {reviews} = props
     function CustomNextArrow(props) {
         const { className, style, onClick } = props;
         return (
@@ -46,23 +47,7 @@ function ReviewsHome() {
 
     };
 
-    const CustomSlide = (props) => {
-        const {index} = props
-        return (
-            <Box
-                marginLeft={0}
-                backgroundColor={'blue'}
-                width={'80%'}
-                margin={'0 auto'}
-                display={'flex'}
-                justifyContent={'center'}
-                alignItems={'center'}
-            >
-                <h1>{index}</h1>
-                <h2>HELLOW</h2>
-            </Box>
-        )
-    }
+   
 
     
     return (
@@ -97,8 +82,13 @@ function ReviewsHome() {
                 </Box>
                 <Box width={'90%'} margin={'0 auto'} textAlign={'center'}  padding={'0'}>
                 <Slider {...settings} sty>
-                    <ReviewCard img={Person1} name={'Jacob Roy'} desc={'The best dental care I have ever experienced! Professional, courteous, and friendly staff made me feel like family… would highly recommend to anyone!!!'} />
-                    <ReviewCard img={Person2} name={'Emily Jhonson'} desc={'The professionalism and friendliness of the whole team is outstanding. I’ve been going with them for a complicated process and then for keeping up and cleaning. Every visit is like visiting friends. I couldn’t be happier with the results.'} />
+                    {reviews.map((review, index) => (
+                        <ReviewCard key={`review-${index}`} 
+                            img={(urlFor(review.image)).url()} 
+                            name={review.title} 
+                            desc={review.description}
+                        />
+                    ))}
                 </Slider>
                 </Box>
 

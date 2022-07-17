@@ -4,8 +4,10 @@ import Image from 'next/image'
 import About1 from '../public/images/about-1.jpg'
 import About2 from '../public/images/about-2.jpg'
 import About3 from '../public/images/about-3.jpg'
+import { urlFor } from '../sanity'
 
-function IntroAbout() {
+function IntroAbout(props) {
+    const {aboutData} = props
     const theme = useTheme()
     const isSmaller = useMediaQuery(theme.breakpoints.down('sm'))
     return (
@@ -19,7 +21,7 @@ function IntroAbout() {
                 minHeight={'100vh'}
                 position={'relative'}
             >
-                <Image src={About1} layout={'fill'} objectFit={'cover'} />
+                <Image src={(urlFor(aboutData.image)).url()} layout={'fill'} objectFit={'cover'} />
             </Box>
             <Box
                 width={'100%'}
@@ -57,10 +59,10 @@ function IntroAbout() {
                                     transition: 'all 0.3s linear'
                                 }}
                             >
-                                We Care about your Dental Health
+                                {aboutData.title}
                             </Typography>
                             <Typography component={'p'} lineHeight={'32px'} fontSize={'18px'} marginTop={'30px'} textAlign={'justify'}>
-                                Lorem ipsum dolor sit amet consectetur adipiscing elit, elementum pretium penatibus porta phasellus magna mauris sagittis, accumsan placerat sem nisi torquent non. Tempus egestas praesent conubia  aliquet habitasse, ante eu ullamcorper neque ultricies risus quam mattis dui tempor nam.
+                                {aboutData.description}    
                             </Typography>
                         </Grid>
                         <Grid item xs={12} md={6} lg={5}>
@@ -91,7 +93,7 @@ function IntroAbout() {
                                         overflow={'hidden'}
                                         zIndex={95}
                                     >
-                                        <Image src={About2} layout={'fill'} />
+                                        <Image src={(urlFor(aboutData.image)).url()} objectFit={'cover'} layout={'fill'} />
                                     </Box>
                                     <Box
                                         width={'240px'}

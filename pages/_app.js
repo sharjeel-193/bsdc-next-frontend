@@ -7,13 +7,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import App from 'next/app'
 import {sanityClient} from '../sanity'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { RiLayoutLeftFill } from 'react-icons/ri'
 import LayouFetchError from '../sections/LayouFetchError'
+import { useRouter } from 'next/router'
+import PageLoader from '../sections/PageLoader'
 
 let layoutDataCache
 
 function MyApp({ Component, pageProps, layoutData }) {
+    const router = useRouter()
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
         console.log({Props: layoutData})
         if(layoutData){
@@ -22,11 +26,31 @@ function MyApp({ Component, pageProps, layoutData }) {
             console.log('PROPS NO')
         }
     },[])
+
+    useEffect(() => {
+        const handleStart = (url) => setLoading(true);
+        const handleComplete = (url) => setLoading(false);
+
+        router.events.on('routeChangeStart', handleStart)
+        router.events.on('routeChangeComplete', handleComplete)
+        router.events.on('routeChangeError', handleComplete)
+
+        return () => {
+            router.events.off('routeChangeStart', handleStart)
+            router.events.off('routeChangeComplete', handleComplete)
+            router.events.off('routeChangeError', handleComplete)
+        }
+    }, [])
+
     return (
         <ThemeProvider theme={theme}>
             {layoutData?(
                 <Layout layoutData={layoutData}>
-                    <Component {...pageProps} />
+                    {loading?(
+                        <PageLoader />
+                    ):(
+                        <Component {...pageProps} />
+                    )}
                 </Layout>
             ):(
                 <LayouFetchError />

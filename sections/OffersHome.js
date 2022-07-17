@@ -4,9 +4,11 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import About1 from '../public/images/about-1.jpg'
+import { urlFor } from '../sanity'
 
-function OffersHome() {
+function OffersHome(props) {
     const theme = useTheme()
+    const {offer} = props
     return (
         <Box
             width={'100%'}
@@ -43,10 +45,10 @@ function OffersHome() {
                             fontSize={'56px'}
                             fontWeight={600}
                         >
-                            10% Off on Braces
+                            {offer.title}
                         </Typography>
                         <Typography component={'p'} lineHeight={'32px'} fontSize={'18px'} marginTop={'30px'} marginBottom={7}>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit, elementum pretium penatibus porta phasellus magna mauris sagittis, accumsan placerat sem nisi torquent non. Tempus egestas praesent conubia  aliquet habitasse, ante eu ullamcorper neque ultricies risus quam mattis dui tempor nam.
+                            {offer.description}    
                         </Typography>
                         
                     </Box>
@@ -60,7 +62,7 @@ function OffersHome() {
                         top={0}
                         margin={'0'}
                     >
-                        <Image src={About1} layout={'fill'} alt={''} />
+                        <Image src={(urlFor(offer.mainImage)).url()} layout={'fill'} alt={''} objectFit={'cover'} />
                     </Box>
                 </Grid>
             </Grid>

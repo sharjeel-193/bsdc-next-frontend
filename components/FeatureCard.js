@@ -20,7 +20,7 @@ function FeatureCard(props) {
                 height={isSmaller?'80px':'100px'}
                 position={'relative'}
             >
-                <Image src={icon} layout={'fill'} />
+                <Image src={icon} layout={'fill'} objectFit={'cover'} />
             </Box>
             <Box
                 marginLeft={'20px'}

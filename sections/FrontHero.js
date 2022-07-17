@@ -6,6 +6,7 @@ import Hero1 from '../public/images/hero-1.png'
 import Hero2 from '../public/images/hero-2.png'
 import {useState} from 'react'
 import {RiArrowLeftSFill, RiArrowRightSFill} from 'react-icons/ri'
+import Link from 'next/link'
 
 function FrontHero() {
     const [currentSlide, setCurrentSlide] = useState(2)
@@ -106,22 +107,24 @@ function FrontHero() {
                         <Typography color={theme.palette.primary.dark} marginTop={'10px'}>
                             Welcome to Bright Smile Dental Clinic and let us make your Smile Bright
                         </Typography>
-                        <Button
-                            variant='outlined'
-                            sx={{
-                                color: theme.palette.primary.dark,
-                                border: `1px solid ${theme.palette.primary.dark}`,
-                                textTransform: 'none',
-                                marginTop: '10px',
-                                fontFamily: 'Exo',
-                                '&:hover':{
-                                    backgroundColor: theme.palette.primary.dark,
-                                    color: 'white'
-                                }
-                            }}
-                        >
-                            Make an Appointment
-                        </Button>
+                        <Link href={'/contact'}>
+                            <Button
+                                variant='outlined'
+                                sx={{
+                                    color: theme.palette.primary.dark,
+                                    border: `1px solid ${theme.palette.primary.dark}`,
+                                    textTransform: 'none',
+                                    marginTop: '10px',
+                                    fontFamily: 'Exo',
+                                    '&:hover':{
+                                        backgroundColor: theme.palette.primary.dark,
+                                        color: 'white'
+                                    }
+                                }}
+                            >
+                                Make an Appointment
+                            </Button>
+                        </Link>
                     </Box>
                 </Box>
                 <Box
@@ -170,22 +173,24 @@ function FrontHero() {
                         <Typography color={theme.palette.secondary.dark} marginTop={'10px'}>
                             We provide you world class facilities using modern tools
                         </Typography>
-                        <Button
-                            variant='outlined'
-                            sx={{
-                                color: theme.palette.secondary.dark,
-                                border: `1px solid ${theme.palette.secondary.dark}`,
-                                textTransform: 'none',
-                                marginTop: '10px',
-                                fontFamily: 'Exo',
-                                '&:hover':{
-                                    backgroundColor: theme.palette.secondary.dark,
-                                    color: 'white'
-                                }
-                            }}
-                        >
-                            Have a Look at Services
-                        </Button>
+                        <Link href={'/services'}>
+                            <Button
+                                variant='outlined'
+                                sx={{
+                                    color: theme.palette.secondary.dark,
+                                    border: `1px solid ${theme.palette.secondary.dark}`,
+                                    textTransform: 'none',
+                                    marginTop: '10px',
+                                    fontFamily: 'Exo',
+                                    '&:hover':{
+                                        backgroundColor: theme.palette.secondary.dark,
+                                        color: 'white'
+                                    }
+                                }}
+                            >
+                                Have a Look at Services
+                            </Button>
+                        </Link>
                     </Box>
                 </Box>
                 <Box
