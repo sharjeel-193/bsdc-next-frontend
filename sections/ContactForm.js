@@ -1,6 +1,7 @@
 import React from 'react'
 import {Box, Typography, Container, useTheme, TextField, Button} from '@mui/material'
-function ContactForm() {
+function ContactForm(props) {
+    const { contactFormData } = props;
     const theme = useTheme()
     return (
         <Box
@@ -27,7 +28,7 @@ function ContactForm() {
                         fontSize={'56px'}
                         fontWeight={600}
                     >
-                        Book an Appointment
+                        {contactFormData?.tagline}
                     </Typography>
                 </Box>
                 <Box
