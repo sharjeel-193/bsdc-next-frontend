@@ -3,11 +3,11 @@ import {createPreviewSubscriptionHook, createCurrentUserHook} from 'next-sanity'
 import createImageUrlBuilder from '@sanity/image-url'
 
 const config = {
-
   dataset: 'bsdc',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   apiVersion: '2021-10-21',
   useCdn: process.env.NODE_ENV === 'production',
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN
 }
 
 
@@ -16,8 +16,8 @@ export const sanityClient = createClient(config)
 // Set up a preview client with serverless authentication for drafts
 export const previewClient = createClient({
   ...config,
-  useCdn: false,
-  token: process.env.SANITY_API_TOKEN,
+  useCdn:false,
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
 })
 
 // Helper function for easily switching between normal client and preview client
