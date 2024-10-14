@@ -74,7 +74,7 @@ MyApp.getInitialProps = async (context) => {
         } else {
             const data = await sanityClient.fetch(query)
             layoutDataCache = data
-            console.log({Data: data})
+            // console.log({Data: data})
             if(data){
                 return {
                     ...pageProps,

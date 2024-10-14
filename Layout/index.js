@@ -10,7 +10,7 @@ function Layout(props) {
     const {layoutData, children} = props
 
     useEffect(() => {
-        console.log({Props: layoutData})
+        // console.log({Props: layoutData})
     }, [])
     
     return (
