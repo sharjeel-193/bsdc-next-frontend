@@ -1,34 +1,110 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BSDC - Bright Smile Dental Clinic
+
+A modern and responsive website for Bright Smile Dental Clinic, built using Next.js, Material UI (MUI), and Sanity CMS. This website provides users with information about the clinic, its services, and blogs related to dental care, providing an optimal experience across all devices.
+
+[Live Demo](https://bsdc-next-frontend.vercel.app/)
+
+The backend repository for this project can be found [here](https://github.com/sharjeel-193/bsdc-sanity-backend).
+
+## Features
+
+* **Responsive Design**: Optimized for both desktop and mobile devices.
+* **Dynamic Content Management**: Sanity CMS integration allows easy updates to content without redeploying the site.
+* **Modern UI**: Built with MUI for a sleek, professional interface.
+* **Service Carousel**: Smooth service showcase with React Slick integration.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+To run this project locally, you'll need:
+
+    Node.js (v14 or later)
+    npm or yarn
+
+### Installation
+
+**Step 1: Clone the Repository**
+
+```bash
+
+git clone https://github.com/yourusername/bsdc-next-frontend.git
+cd bsdc-next-frontend
+
+```
+
+**Step 2: Install Dependencies**
+
+Using npm:
+
+```bash
+npm install
+```
+
+Or using yarn:
+
+```bash
+yarn install
+```
+
+**Step 3: Environment Variables**
+
+Create a .env.local file in the root directory and add your Sanity project details and other required environment variables:
+
+```
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
+NEXT_PUBLIC_SANITY_DATASET=your_sanity_dataset
+NEXT_PUBLIC_SANITY_TOKEN=token_to_access_dataset
+```
+
+Obtain these values from your Sanity project dashboard.
+
+**Step 4: Running the App**
+
+To start the development server, run:
 
 ```bash
 npm run dev
-# or
+```
+
+or
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit http://localhost:3000 in your browser to view the site.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+**Step 5: Deployment**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+This project is deployed using Vercel. To deploy your own version:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+* Link your GitHub repository to Vercel.
+* Configure the environment variables in Vercel’s project settings as described above.
+* Trigger a deploy from the Vercel dashboard or push your changes to the master branch.
 
-## Learn More
+The live website is available at:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+https://bsdc-next-frontend.vercel.app/
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* View detailed descriptions of dental services offered.
+* Browse through the blogs written by dental expterts.
+* Use Sanity CMS to update service details, staff info, and more.
 
-## Deploy on Vercel
+### Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* **Next JS**: React framework for server-side rendering and static site generation.
+* **MUI**: Material UI for implementing modern design.
+* **Sanity**: Headless CMS for dynamic content management.
+* **React Slick**: Used for light weight carousel features.
+* **Moment.js**: Library for date formatting and manipulation.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+For any inquiries or issues, please contact: m.sharjeel193@gmail.com
